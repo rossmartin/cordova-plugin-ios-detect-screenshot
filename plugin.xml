@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-ios-detect-screenshot" version="1.0.0">
+    <name>Detect Screenshot</name>
+    <description>Cordova Detect Screenshot Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,screenshot,ScreenShieldKit,confide</keywords>
+
+    <engines>
+	     <engine name="cordova" version=">=3.2.0" />
+    </engines>
+
+    <js-module src="www/screenshot-detect.js" name="ScreenshotDetect">
+    	<clobbers target="window.ScreenshotDetect" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="ScreenshotDetect">
+                <param name="ios-package" value="ScreenshotDetect" onload="true" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/ScreenshotDetect.h" />
+        <source-file src="src/ios/ScreenshotDetect.m" />
+    </platform>
+</plugin>
